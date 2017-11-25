@@ -4,6 +4,7 @@ Created on Oct 30, 2017
 
 @author: saccoa1
 '''
+'''
 import json
 import socket   #for sockets
 import sys  #for exit
@@ -47,6 +48,7 @@ except socket.error:
     sys.exit()
  
 print 'Message send successfully'
+'''
 
 #from nt import lstat
 #import requests

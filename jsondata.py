@@ -3,9 +3,13 @@ Created on Nov 18, 2017
 
 @author: saccoa1
 '''
+
+'''
+#####THE CODE BELOW IS FOR PROOF OF CONCEPT, IN NO WAY RELATED TO THE CODE I NEED######
 ##Proof of concept for getting json/general json syntax and format
 from urllib.request import urlopen
 import json
+from _multiprocessing import send
 
 def printResults(data):
     # Use the json module to load the string data into a dictionary
@@ -58,3 +62,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+#BELOW IS THE OUTLINE OF JSON STRING DATA THAT WILL BE SENT
+def makepin(pin):
+    {
+    "type": "gpio",
+    "op": "make", 
+    "pin": "27", 
+    "direction": "in"
+    }
+
+    
+def setpin(pin, value):
+    {
+    "type": "gpio",
+    "op": "set",
+    "pin": "27",
+    "value": "high"
+}

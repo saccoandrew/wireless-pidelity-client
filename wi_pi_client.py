@@ -5,28 +5,28 @@ socket programming from the python docs.
 '''
 import socket
 import sys
+import json
 
-HOST = 'daring.cwi.nl'    # The remote host
+HOST = '192.168.12.1'     # The remote host
 PORT = 50007              # The same port as used by the server
 s = None
 for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC, socket.SOCK_STREAM):
     af, socktype, proto, canonname, sa = res
     try:
         s = socket.socket(af, socktype, proto)
-    except socket.error as msg:
+    except OSError as msg:
         s = None
         continue
     try:
         s.connect(sa)
-    except socket.error as msg:
+    except OSError as msg:
         s.close()
         s = None
         continue
     break
 if s is None:
-    print ("Could not open socket")
+    print('could not open socket')
     sys.exit(1)
-s.sendall('Hello, world')
-data = s.recv(1024)
-s.close()
-print ("Received", repr(data))
+with s:
+    s.sendall(b'json.JSONEncoder().encode({"type": "gpio", "op": "make", "pin": "27", "direction": "in"})')
+#    s.sendall(b'{"type": "gpio", "op": "make", "pin": "27", "direction": "in"}')

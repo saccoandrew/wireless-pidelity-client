@@ -49,7 +49,7 @@ except socket.error:
  
 print 'Message send successfully'
 '''
-
+##############################FOLLOWING CODE IS TO PROVIDE CONTEXT FOR MYSELF##########################
 #from nt import lstat
 #import requests
 #import socket
